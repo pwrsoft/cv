@@ -1,0 +1,271 @@
+\documentclass[a4paper, serif, 11pt]{moderncv}
+
+%% moderncv
+% style and color
+\moderncvstyle{banking}
+\moderncvcolor{black}
+
+%% page layout/margins
+\usepackage[top=2.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm]{geometry}
+
+%% Babel config for English language
+\usepackage[english]{babel}
+
+%% fontspec
+\usepackage{fontspec}
+
+\IfFontExistsTF{Linux Libertine}{
+  \setmainfont[Ligatures={TeX, Common}, Numbers=OldStyle]{Linux Libertine}
+}{}
+\IfFontExistsTF{Linux Libertine O}{
+  \setmainfont[Ligatures={TeX, Common}, Numbers=OldStyle]{Linux Libertine O}
+}{}
+
+%% CTeX
+% CJK support, used to show CJK characters in the resume
+%
+% - fontset=none: disable builtin fontset but instead set the CJK font manually
+% - heading=false: disable ctex heading
+% - punct=kaiming: use kaiming punctuations styles for CJK
+% - scheme=plain: use plain scheme, do not override \normalsize font size
+% - space=auto: space settings for CJK characters
+%
+% ref:
+% - http://ctan.mirrorcatalogs.com/language/chinese/ctex/ctex.pdf
+\usepackage[UTF8, heading=false, punct=kaiming, scheme=plain, space=auto]{ctex}
+
+\IfFontExistsTF{Noto Serif CJK SC}{
+  \setCJKmainfont{Noto Serif CJK SC}
+}{}
+\IfFontExistsTF{Noto Sans CJK SC}{
+  \setCJKsansfont{Noto Sans CJK SC}
+}{}
+
+%% line spacing
+\usepackage{setspace}
+\setstretch{1.125}
+
+%% URL styling - use normal text instead of monospace
+\urlstyle{same}
+
+% Auto-underline all links
+% Defer until \begin{document} so hyperref is already loaded
+\AtBeginDocument{%
+  \let\oldhref\href
+  \renewcommand{\href}[2]{\oldhref{#1}{\underline{#2}}}%
+}
+
+%% Patch \httplink and \httpslink to handle full URLs
+% The original moderncv macros always prepend http:// or https:// to URLs.
+% This causes issues when the URL already has a protocol (e.g., https://example.com)
+% resulting in malformed URLs like https://https://example.com.
+% This patch checks if the URL already contains "://" and uses it directly if so.
+% Note: We use \str_set:Nx (x-expansion) to expand macros like \@homepage first.
+\ExplSyntaxOn
+\str_new:N \g_yamlresume_url_str
+
+\RenewDocumentCommand{\httpslink}{O{}m}{
+  \str_set:Nx \g_yamlresume_url_str {#2}
+  \str_if_in:NnTF \g_yamlresume_url_str {://}
+    { \url{#2} }
+    { \url{https://#2} }
+}
+
+\RenewDocumentCommand{\httplink}{O{}m}{
+  \str_set:Nx \g_yamlresume_url_str {#2}
+  \str_if_in:NnTF \g_yamlresume_url_str {://}
+    { \url{#2} }
+    { \url{http://#2} }
+}
+\ExplSyntaxOff
+
+\name{Volodymyr Protsaylo}{}
+\title{Software Engineer (Java)}
+\email{wolodya.java@manyme.com}
+
+\address{Lviv, Ukraine}{}{}
+
+\extrainfo{{\small \faLinkedin}\ \href{https://www.linkedin.com/in/protsaylo/}{@protsaylo}}
+
+\begin{document}
+
+\maketitle
+
+\section{Basics}
+
+\cvline{}{\begin{itemize}
+\item Computer Science graduate with a deep foundation in data structures, algorithms, and robust software design.
+\item Java developer with over two decades of IT experience, including 10+ years specializing in Java backend development.
+\item Extensive experience designing AML/KYC risk-scoring and authentication platforms for tier-one Nordic banks.
+\item Broad domain background spanning fintech, banking, healthcare, media, and oil \& gas across Europe, the Middle East, and the US.
+\item Deep technical expertise in Spring Boot, event-driven architectures (Kafka), and secure enterprise authentication (OIDC/SAML).
+\item Proven track record of delivering production-critical systems under tight compliance and high-pressure environments.
+\end{itemize}}
+\section{Education}
+
+\cventry{1994–1999}
+        {Master, Computer Sciences, Score: 5.0}
+        {Lviv Polytechnic National University}
+        {\url{https://lpnu.ua/en}}
+        {}
+        {Department of Information Technology Design}
+\section{Work}
+
+\cventry{Feb 2024–Present}
+        {Senior Software Engineer}
+        {Tieto}
+        {\url{https://www.tieto.com/en/}}
+        {}
+        {\textbf{AML/KYC Customer Risk Rating (CRR) Platform (Jan 2026 – Present | Team: 10)}
+%
+\begin{itemize}
+\item Engineered a core CRR engine supporting Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance, automating risk scoring for customer onboarding and periodic reviews.
+\item Investigated and resolved a critical database connection leak in the CRR API by optimizing HikariCP connection pooling handling.
+\item Enhanced system resilience by refactoring graceful shutdown mechanisms, timeout configurations, and error handling across the CRR API.
+\item Extended industry code processing logic to seamlessly handle multiple industry codes per customer during live risk evaluations.
+\item Fixed core AML status fallback logic, ensuring reliable synchronous evaluations divert to KYC Core when the primary AML database is unavailable.
+\item Implemented comprehensive audit logging (ILO) for CRR actions to satisfy strict regulatory traceability requirements.
+\end{itemize}
+\textbf{Secure Common Services (SCS) Authentication Platform (Feb 2024 – Jan 2026 | Team: 12)}
+%
+\begin{itemize}
+\item Developed and maintained a high-availability identity and authentication platform integrating BankID, ID-Porten, Buypass, and biometrics for retail banking customers via a unified Identity Provider (IDP) backend.
+\item Integrated new authentication flows, including SA-MOBILE-BIOMETRIC-ID and the Simplified BankID flow, across client and IDP services.
+\item Resolved complex integration bugs, including an OIDC return flow defect for the PURE-NO-BANKID method and a SAML client verification lookup issue.
+\item Diagnosed and fixed low-level Hardware Security Module (HSM) cryptographic exceptions affecting digital signing operations.
+\item Designed and implemented secure audit logging (ILO) for administrative and approval workflows, alongside streaming real-time authentication stats, billing, and fraud logs via Kafka.
+\end{itemize}}
+
+\cventry{May 2023–Feb 2024}
+        {Software Engineer}
+        {Infopulse}
+        {\url{https://en.wikipedia.org/wiki/Infopulse\_Ukraine}}
+        {}
+        {\begin{itemize}
+\item \textbf{Automotive Retail Banking Solution providing financing and loans for major European car manufacturers (Team: 15).}
+\item Analyzed and extended an enterprise OEM data loader solution, consolidating high-volume info from fragmented sources into a single database.
+\item Migrated the Vehicle Type Service (VTS) module to a new platform, introducing high-performance caching for commercial vehicle data.
+\item Standardized the core VIS API and designed a matching service for OEM data snapshots.
+\item Designed an application gateway mapping replacement to ensure seamless integration with a newly introduced core service.
+\end{itemize}}
+
+\cventry{Jan 2023–May 2023}
+        {Software Engineer}
+        {KindGeek}
+        {\url{https://www.kindgeek.com/}}
+        {}
+        {\begin{itemize}
+\item ** Digital Retail Banking Platform for the Middle East market (Team: 30).**
+\item Extended and integrated core banking engine modules to match local compliance regulations.
+\item Mapped and implemented strict Anti-Money Laundering (AML) and Anti-Fraud business logic requirements.
+\end{itemize}}
+
+\cventry{Feb 2021–Jan 2023}
+        {Software Engineer}
+        {ELEKS}
+        {\url{https://eleks.com/}}
+        {}
+        {\textbf{Sport \& Fitness Enterprise Solution (Jan 2022 – Jan 2023 | Team: 20)}
+%
+\begin{itemize}
+\item Refactored and optimized core algorithms to improve platform performance and maintainability for a massive family-oriented fitness group business.
+\end{itemize}
+\textbf{Retail POS Solution (Apr 2021 – Jan 2022 | Team: 22)}
+%
+\begin{itemize}
+\item Developed a localized retail web app and admin console to configure POS terminals, manage users, and store transaction data.
+\item Engineered robust offline-mode functionality for network disruptions and integrated barcode label printing hardware.
+\end{itemize}
+\textbf{Task Management \& Communication System (Feb 2021 – Apr 2021 | Team: 14)}
+%
+\begin{itemize}
+\item Implemented REST endpoints and database migration scripts using PostgreSQL.
+\item Integrated Amazon SES for transactional mailings and Amazon S3 for attachment storage.
+\item Produced core technical documentation and open-source library compliance guidelines.
+\end{itemize}}
+
+\cventry{Jan 2014–Feb 2021}
+        {Software Engineer}
+        {Edvantis}
+        {\url{https://www.edvantis.com/}}
+        {}
+        {\textbf{Certification \& Data Analytics Systems (Oct 2018 – Feb 2021 | Teams: 4–5)}
+%
+\begin{itemize}
+\item Designed and developed new features for backend data infrastructure and rolled out new digital certification programs for US clients.
+\item Designed, developed, and integrated new backend functionality, fixing defects in existing data infrastructure.
+\end{itemize}
+\textbf{Media Article Classification Tool (Nov 2017 – Oct 2018 | Team: 12)}
+%
+\begin{itemize}
+\item Built microservices backend infrastructure using Docker containers and established continuous integration pipelines using Jenkins.
+\end{itemize}
+\textbf{SQL \& Application Development (Jan 2014 – Nov 2017 | Teams: 3–4)}
+%
+\begin{itemize}
+\item Developed complex SQL queries and database optimizations for healthcare reporting based on detailed requirement analysis.
+\item Planned, built, and tested analytics platform modules across diverse production environments.
+\end{itemize}}
+
+\cventry{Sep 2008–Dec 2013}
+        {Java Engineer, System Programming Dept. Manager}
+        {Altertech}
+        {\url{https://www.altertech.com/}}
+        {}
+        {\begin{itemize}
+\item \textbf{Advertisement Marketplace (Team: 5):}
+\item Architected custom software solutions and managed bare-metal server virtualization, monitoring, and automated backup infrastructure.
+\item Developed complex automation scripts and open-source storage solutions.
+\item Built system management tools and applications for high-volume VoIP platforms.
+\end{itemize}}
+\section{Languages}
+
+\cvline{English}{Full Professional Proficiency}
+\cvline{Polish}{Minimum Professional Proficiency}
+\cvline{German}{Minimum Professional Proficiency}
+\cvline{Ukrainian}{Native or Bilingual Proficiency}
+\section{Skills}
+
+\cvline{Technologies}{Expert \hfill \textbf{Keywords}: Java, Scala, Agile, SQL, Spring Boot, Micronaut, Microstream, MVC, Docker, Kafka, Microservices, REST, CI/CD, Maven, Git, Gradle}
+\cvline{Unit Testing}{Advanced \hfill \textbf{Keywords}: JUnit, Mockito, DBRider, WireMock}
+\cvline{Build Servers}{Advanced \hfill \textbf{Keywords}: Jenkins, TeamCity, GitLab CI}
+\cvline{Web Technologies and Frameworks}{Advanced \hfill \textbf{Keywords}: JSP, Spring MVC, XML/XSLT, HTML5, JavaScript, Apache FreeMarker}
+\cvline{Data Access and ORM}{Expert \hfill \textbf{Keywords}: JDBC, JPA, Hibernate}
+\cvline{Integration}{Advanced \hfill \textbf{Keywords}: Apache ActiveMQ, Web services, MQTT, Kafka}
+\cvline{Web Performance Testing}{Intermediate \hfill \textbf{Keywords}: Selenium IDE, Web Performance Load Tester}
+\cvline{Application Servers}{Intermediate \hfill \textbf{Keywords}: Apache Tomcat, Resin}
+\cvline{Databases}{Advanced \hfill \textbf{Keywords}: Oracle, PostgreSQL, Microsoft SQL Server, MySQL, Redis, MongoDB}
+\section{Certificates}
+
+\cventry{Jan 2020}
+        {GrepS}
+        {Skill Analysis for Professional Java Developers}
+        {}
+        {}
+        {}
+
+\cventry{Jan 2019}
+        {LITS}
+        {Basics of Web UI Development}
+        {}
+        {}
+        {}
+
+\cventry{Jan 2018}
+        {Coursera}
+        {Learning How to Learn}
+        {}
+        {}
+        {}
+
+\cventry{Jan 2017}
+        {LITS}
+        {CS50: Introduction to Computer Science}
+        {}
+        {}
+        {}
+\section{Interests}
+
+\cvline{Sports}{Swimming, Bike, Hiking}
+\cvline{Technical}{Internet of Things (IoT), Amateur Radio Operation, 3D Printing}
+\end{document}

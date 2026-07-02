@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="YAMLResume (https://yamlresume.dev)">
+
+
+  <title>Volodymyr Protsaylo Resume</title>
+  <style>
+    :root {
+      --text-font-size: 16px;
+      --text-font-family: var(--text-default-font-family);
+      --line-height: 1.5;
+    }
+
+    /* Modified from: https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+    /* 1. Use a more-intuitive box-sizing model */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* 2. Remove default margin */
+    *:not(dialog) {
+      margin: 0;
+    }
+
+    body {
+      /* 3. Improve text rendering */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    :root {
+      --border-color: #d0d0d0;
+
+      /* text colors */
+      --text-color-primary: #000000;
+      --text-color-secondary: #333333;
+
+      /* spacing */
+      --spacing-xss: 2px;
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 12px;
+      --spacing-lg: 16px;
+      --spacing-xl: 24px;
+      --spacing-xxl: 40px;
+      --spacing-xxxl: 80px;
+
+      /* font sizes */
+      --font-size-xs: 0.8rem;
+      --font-size-sm: 0.9rem;
+      --font-size-md: 1rem;
+      --font-size-lg: 1.1rem;
+      --font-size-xl: 1.25rem;
+      --font-size-xxl: 2.5rem;
+
+      /* layout */
+      --page-max-width: 900px;
+
+      /* typography */
+      --text-default-font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, sans-serif;
+    }
+
+    html {
+      font-size: var(--text-font-size);
+    }
+
+    body {
+      /* font & text */
+      color: var(--text-color-primary);
+      font-family: var(--text-font-family);
+      /* this variable is defined by `typography.fontSize` in resume html layout */
+      text-autospace: normal;
+
+      /* layout */
+      line-height: var(--line-height);
+      max-width: var(--page-max-width);
+      margin: 0 auto;
+      padding: var(--spacing-xxxl) var(--spacing-xxl) var(--spacing-xxl);
+    }
+
+    /* header */
+    .resume-header {
+      margin-bottom: var(--spacing-xxl);
+      text-align: center;
+    }
+
+    .resume-name {
+      font-size: var(--font-size-xxl);
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .resume-headline {
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-md);
+    }
+
+    /* contact info */
+    .resume-contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      column-gap: var(--spacing-lg);
+      row-gap: var(--spacing-xs);
+      margin-top: var(--spacing-sm);
+    }
+
+    .resume-contact-icon,
+    .resume-contact-label {
+      margin-right: var(--spacing-sm);
+      vertical-align: middle;
+    }
+
+    /* links: modern typographic style */
+    a {
+      color: var(--text-color-primary);
+      text-decoration: underline;
+      text-decoration-color: var(--border-color);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-skip-ink: auto;
+      transition: text-decoration-color 0.2s;
+    }
+
+    a:hover {
+      text-decoration-color: var(--text-color-primary);
+    }
+
+    /* sections */
+    .resume-section {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .resume-section-title {
+      font-size: var(--font-size-xl);
+      font-weight: 500;
+      margin-bottom: var(--spacing-md);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: var(--spacing-xs);
+    }
+
+    /* entries */
+    .resume-entry {
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .resume-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .resume-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .resume-entry-title {
+      font-weight: 500;
+      margin-bottom: var(--spacing-xss);
+    }
+
+    .resume-entry-summary p,
+    .resume-summary-content p {
+      margin-bottom: var(--spacing-xs);
+    }
+
+    /* lists */
+    .resume-entry-summary ul,
+    .resume-entry-summary ol,
+    .resume-summary-content ul,
+    .resume-summary-content ol {
+      padding-left: var(--spacing-lg);
+      list-style-type: circle;
+    }
+
+    /* labeled lists (courses, keywords, etc.) */
+    .resume-labeled-list span {
+      font-weight: 500;
+    }
+
+    /* skills grid */
+    .resume-skill-item,
+    .resume-language-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .resume-skill-name,
+    .resume-language-name {
+      font-weight: 500;
+    }
+
+    .resume-skill-level,
+    .resume-language-fluency {
+      font-weight: 400;
+    }
+
+    /* mobile */
+    @media (max-width: 768px) {
+      body {
+        padding: var(--spacing-xl);
+      }
+
+      .resume-header {
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .resume-contact-info {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .resume-entry-header {
+        flex-wrap: wrap;
+      }
+
+      .resume-skill-item,
+      .resume-language-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* footer */
+    .resume-footer {
+      margin-top: var(--spacing-xxl);
+      padding-top: var(--spacing-xl);
+      border-top: 1px solid var(--border-color);
+      font-size: var(--font-size-sm);
+      color: var(--text-color-secondary);
+    }
+
+    @media print {
+      .resume-footer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="resume-header">
+    <h1 class="resume-name">Volodymyr Protsaylo</h1>
+    <p class="resume-headline">Software Engineer (Java)</p>
+    <div class="resume-contact-info">
+      <span class="resume-contact-item"><span class="resume-contact-icon">📧</span><a href="mailto:wolodya.java@manyme.com" class="resume-contact-link">wolodya.java@manyme.com</a></span>
+    </div>
+    <div class="resume-contact-info resume-location-info">
+      <span class="resume-contact-item"><span class="resume-contact-icon">📍</span>Lviv, Ukraine</span>
+    </div>
+    <div class="resume-contact-info resume-profiles-info">
+      <span class="resume-contact-item"><span class="resume-contact-label">LinkedIn</span>: <a href="https://www.linkedin.com/in/protsaylo/" class="resume-contact-link">@protsaylo</a></span>
+    </div>
+  </header>
+  <section class="resume-section" data-section="summary">
+    <h2 class="resume-section-title">Basics</h2>
+    <div class="resume-section-content">
+      <div class="resume-summary-content">
+        <ul>
+          <li>
+            <p>Computer Science graduate with a deep foundation in data structures, algorithms, and robust software design.</p>
+          </li>
+          <li>
+            <p>Java developer with over two decades of IT experience, including 10+ years specializing in Java backend development.</p>
+          </li>
+          <li>
+            <p>Extensive experience designing AML/KYC risk-scoring and authentication platforms for tier-one Nordic banks.</p>
+          </li>
+          <li>
+            <p>Broad domain background spanning fintech, banking, healthcare, media, and oil &amp; gas across Europe, the Middle East, and the US.</p>
+          </li>
+          <li>
+            <p>Deep technical expertise in Spring Boot, event-driven architectures (Kafka), and secure enterprise authentication (OIDC/SAML).</p>
+          </li>
+          <li>
+            <p>Proven track record of delivering production-critical systems under tight compliance and high-pressure environments.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="resume-section" data-section="education">
+    <h2 class="resume-section-title">Education</h2>
+    <div class="resume-section-content">
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title"><a href="https://lpnu.ua/en">Lviv Polytechnic National University</a></div>
+            <div class="resume-entry-organization">Master, Computer Sciences, Score: 5.0</div>
+          </div>
+          <div class="resume-entry-date">1994–1999</div>
+        </div>
+        <div class="resume-entry-summary">
+          <p>Department of Information Technology Design</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="resume-section" data-section="work">
+    <h2 class="resume-section-title">Work</h2>
+    <div class="resume-section-content">
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title"><a href="https://www.tieto.com/en/">Tieto</a></div>
+            <div class="resume-entry-organization">Senior Software Engineer</div>
+          </div>
+          <div class="resume-entry-date">Feb 2024–Present</div>
+        </div>
+        <div class="resume-entry-summary">
+          <p><strong>AML/KYC Customer Risk Rating (CRR) Platform (Jan 2026 – Present | Team: 10)</strong></p>
+          <ul>
+            <li>
+              <p>Engineered a core CRR engine supporting Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance, automating risk scoring for customer onboarding and periodic reviews.</p>
+            </li>
+            <li>
+              <p>Investigated and resolved a critical database connection leak in the CRR API by optimizing HikariCP connection pooling handling.</p>
+            </li>
+            <li>
+              <p>Enhanced system resilience by refactoring graceful shutdown mechanisms, timeout configurations, and error handling across the CRR API.</p>
+            </li>
+            <li>
+              <p>Extended industry code processing logic to seamlessly handle multiple industry codes per customer during live risk evaluations.</p>
+            </li>
+            <li>
+              <p>Fixed core AML status fallback logic, ensuring reliable synchronous evaluations divert to KYC Core when the primary AML database is unavailable.</p>
+            </li>
+            <li>
+              <p>Implemented comprehensive audit logging (ILO) for CRR actions to satisfy strict regulatory traceability requirements.</p>
+            </li>
+          </ul>
+          <p><strong>Secure Common Services (SCS) Authentication Platform (Feb 2024 – Jan 2026 | Team: 12)</strong></p>
+          <ul>
+            <li>
+              <p>Developed and maintained a high-availability identity and authentication platform integrating BankID, ID-Porten, Buypass, and biometrics for retail banking customers via a unified Identity Provider (IDP) backend.</p>
+            </li>
+            <li>
+              <p>Integrated new authentication flows, including SA-MOBILE-BIOMETRIC-ID and the Simplified BankID flow, across client and IDP services.</p>
+            </li>
+            <li>
+              <p>Resolved complex integration bugs, including an OIDC return flow defect for the PURE-NO-BANKID method and a SAML client verification lookup issue.</p>
+            </li>
+            <li>
+              <p>Diagnosed and fixed low-level Hardware Security Module (HSM) cryptographic exceptions affecting digital signing operations.</p>
+            </li>
+            <li>
+              <p>Designed and implemented secure audit logging (ILO) for administrative and approval workflows, alongside streaming real-time authentication stats, billing, and fraud logs via Kafka.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title"><a href="https://en.wikipedia.org/wiki/Infopulse_Ukraine">Infopulse</a></div>
+            <div class="resume-entry-organization">Software Engineer</div>
+          </div>
+          <div class="resume-entry-date">May 2023–Feb 2024</div>
+        </div>
+        <div class="resume-entry-summary">
+          <ul>
+            <li>
+              <p><strong>Automotive Retail Banking Solution providing financing and loans for major European car manufacturers (Team: 15).</strong></p>
+            </li>
+            <li>
+              <p>Analyzed and extended an enterprise OEM data loader solution, consolidating high-volume info from fragmented sources into a single database.</p>
+            </li>
+            <li>
+              <p>Migrated the Vehicle Type Service (VTS) module to a new platform, introducing high-performance caching for commercial vehicle data.</p>
+            </li>
+            <li>
+              <p>Standardized the core VIS API and designed a matching service for OEM data snapshots.</p>
+            </li>
+            <li>
+              <p>Designed an application gateway mapping replacement to ensure seamless integration with a newly introduced core service.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title"><a href="https://www.kindgeek.com/">KindGeek</a></div>
+            <div class="resume-entry-organization">Software Engineer</div>
+          </div>
+          <div class="resume-entry-date">Jan 2023–May 2023</div>
+        </div>
+        <div class="resume-entry-summary">
+          <ul>
+            <li>
+              <p>** Digital Retail Banking Platform for the Middle East market (Team: 30).**</p>
+            </li>
+            <li>
+              <p>Extended and integrated core banking engine modules to match local compliance regulations.</p>
+            </li>
+            <li>
+              <p>Mapped and implemented strict Anti-Money Laundering (AML) and Anti-Fraud business logic requirements.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title"><a href="https://eleks.com/">ELEKS</a></div>
+            <div class="resume-entry-organization">Software Engineer</div>
+          </div>
+          <div class="resume-entry-date">Feb 2021–Jan 2023</div>
+        </div>
+        <div class="resume-entry-summary">
+          <p><strong>Sport &amp; Fitness Enterprise Solution (Jan 2022 – Jan 2023 | Team: 20)</strong></p>
+          <ul>
+            <li>
+              <p>Refactored and optimized core algorithms to improve platform performance and maintainability for a massive family-oriented fitness group business.</p>
+            </li>
+          </ul>
+          <p><strong>Retail POS Solution (Apr 2021 – Jan 2022 | Team: 22)</strong></p>
+          <ul>
+            <li>
+              <p>Developed a localized retail web app and admin console to configure POS terminals, manage users, and store transaction data.</p>
+            </li>
+            <li>
+              <p>Engineered robust offline-mode functionality for network disruptions and integrated barcode label printing hardware.</p>
+            </li>
+          </ul>
+          <p><strong>Task Management &amp; Communication System (Feb 2021 – Apr 2021 | Team: 14)</strong></p>
+          <ul>
+            <li>
+              <p>Implemented REST endpoints and database migration scripts using PostgreSQL.</p>
+            </li>
+            <li>
+              <p>Integrated Amazon SES for transactional mailings and Amazon S3 for attachment storage.</p>
+            </li>
+            <li>
+              <p>Produced core technical documentation and open-source library compliance guidelines.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title"><a href="https://www.edvantis.com/">Edvantis</a></div>
+            <div class="resume-entry-organization">Software Engineer</div>
+          </div>
+          <div class="resume-entry-date">Jan 2014–Feb 2021</div>
+        </div>
+        <div class="resume-entry-summary">
+          <p><strong>Certification &amp; Data Analytics Systems (Oct 2018 – Feb 2021 | Teams: 4–5)</strong></p>
+          <ul>
+            <li>
+              <p>Designed and developed new features for backend data infrastructure and rolled out new digital certification programs for US clients.</p>
+            </li>
+            <li>
+              <p>Designed, developed, and integrated new backend functionality, fixing defects in existing data infrastructure.</p>
+            </li>
+          </ul>
+          <p><strong>Media Article Classification Tool (Nov 2017 – Oct 2018 | Team: 12)</strong></p>
+          <ul>
+            <li>
+              <p>Built microservices backend infrastructure using Docker containers and established continuous integration pipelines using Jenkins.</p>
+            </li>
+          </ul>
+          <p><strong>SQL &amp; Application Development (Jan 2014 – Nov 2017 | Teams: 3–4)</strong></p>
+          <ul>
+            <li>
+              <p>Developed complex SQL queries and database optimizations for healthcare reporting based on detailed requirement analysis.</p>
+            </li>
+            <li>
+              <p>Planned, built, and tested analytics platform modules across diverse production environments.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title"><a href="https://www.altertech.com/">Altertech</a></div>
+            <div class="resume-entry-organization">Java Engineer, System Programming Dept. Manager</div>
+          </div>
+          <div class="resume-entry-date">Sep 2008–Dec 2013</div>
+        </div>
+        <div class="resume-entry-summary">
+          <ul>
+            <li>
+              <p><strong>Advertisement Marketplace (Team: 5):</strong></p>
+            </li>
+            <li>
+              <p>Architected custom software solutions and managed bare-metal server virtualization, monitoring, and automated backup infrastructure.</p>
+            </li>
+            <li>
+              <p>Developed complex automation scripts and open-source storage solutions.</p>
+            </li>
+            <li>
+              <p>Built system management tools and applications for high-volume VoIP platforms.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="resume-section" data-section="languages">
+    <h2 class="resume-section-title">Languages</h2>
+    <div class="resume-section-content">
+      <div class="resume-languages-list">
+        <div class="resume-language-item">
+          <div class="resume-language-name">English<span class="resume-language-fluency">: Full Professional Proficiency</span></div>
+        </div>
+        <div class="resume-language-item">
+          <div class="resume-language-name">Polish<span class="resume-language-fluency">: Minimum Professional Proficiency</span></div>
+        </div>
+        <div class="resume-language-item">
+          <div class="resume-language-name">German<span class="resume-language-fluency">: Minimum Professional Proficiency</span></div>
+        </div>
+        <div class="resume-language-item">
+          <div class="resume-language-name">Ukrainian<span class="resume-language-fluency">: Native or Bilingual Proficiency</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="resume-section" data-section="skills">
+    <h2 class="resume-section-title">Skills</h2>
+    <div class="resume-section-content">
+      <div class="resume-skill-item">
+        <div class="resume-skill-name">Technologies<span class="resume-skill-level">: Expert</span></div>
+        <div>
+          <div class="resume-labeled-list"><span>Keywords</span>: Java, Scala, Agile, SQL, Spring Boot, Micronaut, Microstream, MVC, Docker, Kafka, Microservices, REST, CI/CD, Maven, Git, Gradle</div>
+        </div>
+      </div>
+      <div class="resume-skill-item">
+        <div class="resume-skill-name">Unit Testing<span class="resume-skill-level">: Advanced</span></div>
+        <div>
+          <div class="resume-labeled-list"><span>Keywords</span>: JUnit, Mockito, DBRider, WireMock</div>
+        </div>
+      </div>
+      <div class="resume-skill-item">
+        <div class="resume-skill-name">Build Servers<span class="resume-skill-level">: Advanced</span></div>
+        <div>
+          <div class="resume-labeled-list"><span>Keywords</span>: Jenkins, TeamCity, GitLab CI</div>
+        </div>
+      </div>
+      <div class="resume-skill-item">
+        <div class="resume-skill-name">Web Technologies and Frameworks<span class="resume-skill-level">: Advanced</span></div>
+        <div>
+          <div class="resume-labeled-list"><span>Keywords</span>: JSP, Spring MVC, XML/XSLT, HTML5, JavaScript, Apache FreeMarker</div>
+        </div>
+      </div>
+      <div class="resume-skill-item">
+        <div class="resume-skill-name">Data Access and ORM<span class="resume-skill-level">: Expert</span></div>
+        <div>
+          <div class="resume-labeled-list"><span>Keywords</span>: JDBC, JPA, Hibernate</div>
+        </div>
+      </div>
+      <div class="resume-skill-item">
+        <div class="resume-skill-name">Integration<span class="resume-skill-level">: Advanced</span></div>
+        <div>
+          <div class="resume-labeled-list"><span>Keywords</span>: Apache ActiveMQ, Web services, MQTT, Kafka</div>
+        </div>
+      </div>
+      <div class="resume-skill-item">
+        <div class="resume-skill-name">Web Performance Testing<span class="resume-skill-level">: Intermediate</span></div>
+        <div>
+          <div class="resume-labeled-list"><span>Keywords</span>: Selenium IDE, Web Performance Load Tester</div>
+        </div>
+      </div>
+      <div class="resume-skill-item">
+        <div class="resume-skill-name">Application Servers<span class="resume-skill-level">: Intermediate</span></div>
+        <div>
+          <div class="resume-labeled-list"><span>Keywords</span>: Apache Tomcat, Resin</div>
+        </div>
+      </div>
+      <div class="resume-skill-item">
+        <div class="resume-skill-name">Databases<span class="resume-skill-level">: Advanced</span></div>
+        <div>
+          <div class="resume-labeled-list"><span>Keywords</span>: Oracle, PostgreSQL, Microsoft SQL Server, MySQL, Redis, MongoDB</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="resume-section" data-section="certificates">
+    <h2 class="resume-section-title">Certificates</h2>
+    <div class="resume-section-content">
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title">Skill Analysis for Professional Java Developers</div>
+            <div class="resume-entry-organization">GrepS</div>
+          </div>
+          <div class="resume-entry-date">Jan 2020</div>
+        </div>
+      </div>
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title">Basics of Web UI Development</div>
+            <div class="resume-entry-organization">LITS</div>
+          </div>
+          <div class="resume-entry-date">Jan 2019</div>
+        </div>
+      </div>
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title">Learning How to Learn</div>
+            <div class="resume-entry-organization">Coursera</div>
+          </div>
+          <div class="resume-entry-date">Jan 2018</div>
+        </div>
+      </div>
+      <div class="resume-entry">
+        <div class="resume-entry-header">
+          <div>
+            <div class="resume-entry-title">CS50: Introduction to Computer Science</div>
+            <div class="resume-entry-organization">LITS</div>
+          </div>
+          <div class="resume-entry-date">Jan 2017</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="resume-section" data-section="interests">
+    <h2 class="resume-section-title">Interests</h2>
+    <div class="resume-section-content">
+      <div class="resume-interest-item"><span class="resume-interest-name">Sports</span>: Swimming, Bike, Hiking</div>
+      <div class="resume-interest-item"><span class="resume-interest-name">Technical</span>: Internet of Things (IoT), Amateur Radio Operation, 3D Printing</div>
+    </div>
+  </section>
+  <footer class="resume-footer">Generated by <a href="https://yamlresume.dev">YAMLResume</a></footer>
+</body>
+
+</html>
