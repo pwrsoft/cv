@@ -22,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: 24
 
@@ -36,13 +36,20 @@ jobs:
       - name: Convert YAML to JSON
         run: |
           npx yaml2json resume.yaml --pretty > resume.json
+          # Debug: Check if JSON was actually created and has content
+          cat resume.json
 
       - name: Build HTML Resume
         run: |
           npx resumed render resume.json -o index.html -t jsonresume-theme-even
+          # Debug: Verify index.html size and content
+          ls -lh index.html
+          head -n 10 index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
