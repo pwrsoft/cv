@@ -35,7 +35,7 @@ jobs:
 
       - name: Convert YAML to JSON
         run: |
-          npx yaml2json resume.yaml --pretty > resume.json
+          node -e "const fs = require('fs'); const yaml = require('yamljs'); const nativeObject = yaml.load('resume.yaml'); fs.writeFileSync('resume.json', JSON.stringify(nativeObject, null, 2));"
           # Debug: Check if JSON was actually created and has content
           cat resume.json
 
