@@ -36,7 +36,7 @@ content:
     city: Lviv
     country: Ukraine
   profiles:
-    - network: Linkedin
+    - network: LinkedIn
       url: https://www.linkedin.com/in/protsaylo/
       username: protsaylo
   education:
@@ -235,7 +235,7 @@ content:
     - language: Polish
       fluency: Minimum Professional Proficiency
       keywords: []
-    - language: Germa
+    - language: German
       fluency: Minimum Professional Proficiency
       keywords: []
     - language: Ukrainian
@@ -354,6 +354,7 @@ content:
       keywords:
         - Internet of Things (IoT)
         - Amateur Radio Operation
+        - 3D Printing
   volunteer: []
 
 # Top-level locale setting
@@ -382,4 +383,4 @@ layouts:
     template: moderncv-banking
     typography:
       # LaTeX engine only supports 10pt, 11pt, and 12pt
-      fontSize: 11ptyo
+      fontSize: 11pt

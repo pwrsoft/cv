@@ -29,22 +29,20 @@ jobs:
         with:
           node-version: 24
 
-      - name: Install Tools and Theme
+      - name: Install YAMLResume
         run: |
-          npm install resumed jsonresume-theme-even yamljs
-
-      - name: Convert YAML to JSON
-        run: |
-          node -e "const fs = require('fs'); const yaml = require('yamljs'); const nativeObject = yaml.load('resume.yaml'); fs.writeFileSync('resume.json', JSON.stringify(nativeObject, null, 2));"
-          # Debug: Check if JSON was actually created and has content
-          cat resume.json
+          npm install -g yamlresume
 
       - name: Build HTML Resume
         run: |
-          npx resumed render resume.json -o index.html -t jsonresume-theme-even
-          # Debug: Verify index.html size and content
-          ls -lh index.html
-          head -n 10 index.html
+          # --no-pdf skips the local LaTeX engine dependencies since we only need the HTML
+          yamlresume build --no-pdf resume.yaml
+          
+          # Debug: check the output files to confirm resume.html exists
+          ls -lh
+          
+          # Rename the output to index.html so GitHub Pages serves it as the root
+          mv resume.html index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
