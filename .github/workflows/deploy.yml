@@ -6,9 +6,7 @@ on:
       - main
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write # Needed to allow the runner to push to the gh-pages branch
 
 concurrency:
   group: "pages"
@@ -16,9 +14,6 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -33,24 +28,17 @@ jobs:
         run: |
           npm install -g yamlresume
 
-      # Create a clean, dedicated folder for the web assets
       - name: Build HTML Resume
         run: |
           mkdir public
           yamlresume build --no-pdf resume.yaml
           mv resume.html public/index.html
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      # This completely bypasses actions/deploy-pages by pushing directly to git
+      - name: Deploy to gh-pages Branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          enablement: true
-
-      # Point the artifact upload ONLY to the clean public folder
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './public'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: './public'
+          publish_branch: gh-pages
+          keep_files: false
