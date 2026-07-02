@@ -6,7 +6,9 @@ on:
       - main
 
 permissions:
-  contents: write # Crucial: Allows the action to commit to the gh-pages branch
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: "pages"
@@ -14,6 +16,9 @@ concurrency:
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -28,15 +33,24 @@ jobs:
         run: |
           npm install -g yamlresume
 
+      # Create a clean, dedicated folder for the web assets
       - name: Build HTML Resume
         run: |
+          mkdir public
           yamlresume build --no-pdf resume.yaml
-          mv resume.html index.html
+          mv resume.html public/index.html
 
-      - name: Deploy to GitHub Pages Branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: '.'
-          publish_branch: gh-pages
-          keep_files: false
+          enablement: true
+
+      # Point the artifact upload ONLY to the clean public folder
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
