@@ -26,12 +26,12 @@ content:
     # - ordered list, unordored list and nested sub list
     # - links (e.g. [link](https://ppresume.com))
     summary: |
-      - Computer Science major with strong foundation in data structures, algorithms, and software development
-      - Java developer with over two decades of IT experience, including more than a decade specializing in Java.
-      - Most recently building AML/KYC risk-scoring and authentication platforms for Nordic banks at Tietoevry.
-      - Background spans banking and fintech, healthcare, media, and oil & gas across Europe, the Middle East, and the US.
-      - Deep expertise in Spring Boot, event-driven architecture (Kafka), and secure authentication (OIDC/SAML).
-      - Effective in cross-functional teams under pressure, with a consistent record of shipping and maintaining production systems.
+      - Computer Science graduate with a deep foundation in data structures, algorithms, and robust software design.
+      - Java developer with over two decades of IT experience, including 10+ years specializing in Java backend development.
+      - Extensive experience designing AML/KYC risk-scoring and authentication platforms for tier-one Nordic banks.
+      - Broad domain background spanning fintech, banking, healthcare, media, and oil & gas across Europe, the Middle East, and the US.
+      - Deep technical expertise in Spring Boot, event-driven architectures (Kafka), and secure enterprise authentication (OIDC/SAML).
+      - Proven track record of delivering production-critical systems under tight compliance and high-pressure environments.
   location:
     city: Lviv
     country: Ukraine
@@ -68,159 +68,94 @@ content:
       summary: Department of Information Technology Design
   work:
     - name: Tieto
-      url: https://www.tieto.com/
-      startDate: Jan 1, 2026
-      endDate:
-      position: Software Engineer
-      summary: |
-        - AML/KYC Customer Risk Rating (CRR) Platform for a Norwegian company (Team: 10).
-        - CRR engine supporting Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance, providing automated risk scoring for customer onboarding and periodic review.
-        - Investigated and resolved a database connection leak in the CRR API caused by improper HikariCP connection handling.
-        - Improved graceful shutdown handling, timeout configuration, and error handling for the CRR API.
-        - Updated industry code processing logic to support multiple industry codes per customer during risk evaluations.
-        - Fixed core AML status logic to correctly fall back to KYC Core instead of the AML database during synchronous risk evaluations.
-        - Implemented audit logging (ILO) for CRR actions to support compliance traceability.
-      keywords: []
-    - name: Tietoevry
       url: https://www.tieto.com/en/
       startDate: Feb 1, 2024
-      endDate: Jan 1, 2026
-      position: Software Engineer
+      endDate:
+      position: Senior Software Engineer
       summary: |
-        - Secure Common Services (SCS) Authentication Platform for a Norwegian company (Team: 12).
-        - Shared identity and authentication platform providing BankID, ID-Porten, Buypass, and biometric ID login methods for retail banking customers through a common Identification Client (IDC) and Identity Provider (IDP) backend.
-        - Implemented new authentication methods, including SA-MOBILE-BIOMETRIC-ID and the Simplified BankID flow, across the Identification Client (IDC) and Identity Provider (IDP) services.
-        - Fixed a defect in the OIDC return flow for the PURE-NO-BANKID authentication method.
-        - Investigated and resolved a Hardware Security Module (HSM) exception affecting signing operations.
-        - Fixed a SAML client verification lookup defect in the Identity Provider.
-        - Designed and implemented audit logging (ILO) for Manual Approval, BiometricID Admin, Activated Apps Admin, and Event Log workflows.
-        - Implemented event streaming to Kafka for authentication statistics, billing records, and fraud/Netbank logging, and created and secured new Kafka topics.
-      keywords: []
+        **AML/KYC Customer Risk Rating (CRR) Platform (Jan 2026 – Present | Team: 10)**
+        - Engineered a core CRR engine supporting Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance, automating risk scoring for customer onboarding and periodic reviews.
+        - Investigated and resolved a critical database connection leak in the CRR API by optimizing HikariCP connection pooling handling.
+        - Enhanced system resilience by refactoring graceful shutdown mechanisms, timeout configurations, and error handling across the CRR API.
+        - Extended industry code processing logic to seamlessly handle multiple industry codes per customer during live risk evaluations.
+        - Fixed core AML status fallback logic, ensuring reliable synchronous evaluations divert to KYC Core when the primary AML database is unavailable.
+        - Implemented comprehensive audit logging (ILO) for CRR actions to satisfy strict regulatory traceability requirements.
+        
+        **Secure Common Services (SCS) Authentication Platform (Feb 2024 – Jan 2026 | Team: 12)**
+        - Developed and maintained a high-availability identity and authentication platform integrating BankID, ID-Porten, Buypass, and biometrics for retail banking customers via a unified Identity Provider (IDP) backend.
+        - Integrated new authentication flows, including SA-MOBILE-BIOMETRIC-ID and the Simplified BankID flow, across client and IDP services.
+        - Resolved complex integration bugs, including an OIDC return flow defect for the PURE-NO-BANKID method and a SAML client verification lookup issue.
+        - Diagnosed and fixed low-level Hardware Security Module (HSM) cryptographic exceptions affecting digital signing operations.
+        - Designed and implemented secure audit logging (ILO) for administrative and approval workflows, alongside streaming real-time authentication stats, billing, and fraud logs via Kafka.
+      keywords: [ ]
     - name: Infopulse
       url: https://en.wikipedia.org/wiki/Infopulse_Ukraine
       startDate: May 1, 2023
       endDate: Feb 1, 2024
       position: Software Engineer
       summary: |
-        - Automotive Retail Banking Solution for a European company (Team: 15). Solution for providing bank loans to car manufacturer retailers.
-        - Analyzed and extended existing OEM data loader solution for consolidation information from various sources into one database.
-        - Migration of Vehicle Type Service (VTS) software module to new platform which allows caching of commercial vehicles data.
-        - Developed and integrated new features into VTS and Application Management (AM) software modules.
-        - Standardized VIS system API and integrated external data sources.
-        - Designed and implemented OEM data snapshots matching service.
-        - Designed existing application gateway system mapping replacement for working with a new core service.
-      keywords: []
+        - **Automotive Retail Banking Solution providing financing and loans for major European car manufacturers (Team: 15).**
+        - Analyzed and extended an enterprise OEM data loader solution, consolidating high-volume info from fragmented sources into a single database.
+        - Migrated the Vehicle Type Service (VTS) module to a new platform, introducing high-performance caching for commercial vehicle data.
+        - Standardized the core VIS API and designed a matching service for OEM data snapshots.
+        - Designed an application gateway mapping replacement to ensure seamless integration with a newly introduced core service.
+      keywords: [ ]
     - name: KindGeek
       url: https://www.kindgeek.com/
       startDate: Jan 1, 2023
       endDate: May 1, 2023
       position: Software Engineer
       summary: |
-        - Digital Retail Banking Solution for a Middle East region company (Team: 30). Digital retail banking for Middle East market.
-        - Core banking engine extension and integration.
-        - Anti-Money Laundering (AML) and Anti-Fraud requirements mapping.
-      keywords: []
-    - name: ELEKS
-      url: https://eleks.com/
-      startDate: Jan 1, 2022
-      endDate: Jan 1, 2023
-      position: Software Engineer
-      summary: |
-        - Sport and Fitness Solution for a European company (Team: 20). Software-based solution aimed at providing a family-oriented and high-quality fitness and leisure facility for the health, sport, and leisure group business.
-        - Developed solutions and algorithms according to technical specifications and other requirements documentation; standard algorithms used in the applicable cases.
-        - Implemented code refactoring and optimization methods.
-      keywords: []
-    - name: ELEKS
-      url: https://eleks.com/
-      startDate: Apr 1, 2021
-      endDate: Jan 1, 2022
-      position: Software Engineer
-      summary: |
-        - Retail POS Solution for a Middle East region company (Team: 22). One-stop retail POS solution that accommodated small and midsize retail businesses.
-        - Implemented a local retail web application, a web-based administrator application designed to configure and maintain the POS terminals, hold transaction data, and manage users in a single store.
-        - The application supported the offline mode when there was no connection to the central server.
-        - Integrated the solution with the barcode printing scales for exporting the weighted products and printing the labels.
-      keywords: []
+        - ** Digital Retail Banking Platform for the Middle East market (Team: 30).**
+        - Extended and integrated core banking engine modules to match local compliance regulations.
+        - Mapped and implemented strict Anti-Money Laundering (AML) and Anti-Fraud business logic requirements.
+      keywords: [ ]
     - name: ELEKS
       url: https://eleks.com/
       startDate: Feb 1, 2021
-      endDate: Apr 1, 2021
+      endDate: Jan 1, 2023
       position: Software Engineer
       summary: |
-        - Task Management and Communication System for a Japanese company (Team: 14). Task management and communication system providing operators with the ability to manage daily fixed and non-fixed tasks.
-        - Implemented new Web API REST endpoints.
-        - Created database migration scripts.
-        - Integrated the system with Amazon Simple Email Service (SES) for sending messages.
-        - Integrated the system with Amazon S3 Service for storing and retrieving attachments.
-        - Created an ERD diagram for a PostgreSQL database.
-        - Created a Project Open-Source Software Libraries Usage Guideline.
-      keywords: []
-    - name: Edvantis
-      url: https://www.edvantis.com/
-      startDate: Oct 1, 2019
-      endDate: Feb 1, 2021
-      position: Software Engineer
-      summary: |
-        - Certification System for a US company (Team: 4).
-        - Implemented new certification programs.
-        - Fixed defects in the back end and front end.
-      keywords: []
-    - name: Edvantis
-      url: https://www.edvantis.com/
-      startDate: Oct 1, 2018
-      endDate: Oct 1, 2019
-      position: Software Engineer
-      summary: |
-        - Data Analytics system for a US company (Team: 5).
-        - Designed, developed, and integrated new back-end functionality.
-        - Fixed defects in the existing back-end infrastructure.
-      keywords: []
-    - name: Edvantis
-      url: https://www.edvantis.com/
-      startDate: Nov 1, 2017
-      endDate: Oct 1, 2018
-      position: Java Developer, DevOps Engineer
-      summary: |
-        - Media Article Classification Tool for a European media resources company (Team: 12).
-        - Developed the back-end functionality.
-        - Built the microservices infrastructure using Docker containers.
-        - Set up a Jenkins build server for continuous integration.
-      keywords: []
-    - name: Edvantis
-      url: https://www.edvantis.com/
-      startDate: Jan 1, 2017
-      endDate: Nov 1, 2017
-      position: SQL Developer
-      summary: |
-        - Family Contact Solution for a US education and healthcare company (Team: 4).
-        - Analyzed the project requirements.
-        - Developed database queries for generating reports.
-      keywords: []
+        **Sport & Fitness Enterprise Solution (Jan 2022 – Jan 2023 | Team: 20)**
+        - Refactored and optimized core algorithms to improve platform performance and maintainability for a massive family-oriented fitness group business.
+        
+        **Retail POS Solution (Apr 2021 – Jan 2022 | Team: 22)**
+        - Developed a localized retail web app and admin console to configure POS terminals, manage users, and store transaction data.
+        - Engineered robust offline-mode functionality for network disruptions and integrated barcode label printing hardware.
+        
+        **Task Management & Communication System (Feb 2021 – Apr 2021 | Team: 14)**
+        - Implemented REST endpoints and database migration scripts using PostgreSQL.
+        - Integrated Amazon SES for transactional mailings and Amazon S3 for attachment storage.
+        - Produced core technical documentation and open-source library compliance guidelines.
+      keywords: [ ]
     - name: Edvantis
       url: https://www.edvantis.com/
       startDate: Jan 1, 2014
-      endDate: Jan 1, 2017
-      position: Application Developer
+      endDate: Feb 1, 2021
+      position: Software Engineer
       summary: |
-        - Data Aggregation Platform for a US company (Team: 3).
-        - Planned and developed new analytics platform modules.
-        - Tested those modules in different production environments.
-      keywords: []
+        **Certification & Data Analytics Systems (Oct 2018 – Feb 2021 | Teams: 4–5)**
+        - Designed and developed new features for backend data infrastructure and rolled out new digital certification programs for US clients.
+        - Designed, developed, and integrated new backend functionality, fixing defects in existing data infrastructure.
+        
+        **Media Article Classification Tool (Nov 2017 – Oct 2018 | Team: 12)**
+        - Built microservices backend infrastructure using Docker containers and established continuous integration pipelines using Jenkins.
+        
+        **SQL & Application Development (Jan 2014 – Nov 2017 | Teams: 3–4)**
+        - Developed complex SQL queries and database optimizations for healthcare reporting based on detailed requirement analysis.
+        - Planned, built, and tested analytics platform modules across diverse production environments.
+      keywords: [ ]
     - name: Altertech
       url: https://www.altertech.com/
       startDate: Sep 1, 2008
       endDate: Dec 1, 2013
       position: Java Engineer, System Programming Dept. Manager
       summary: |
-        - Advertisement Marketplace for a Cyprus-based company (Team: 5).
-        - Developed custom software solutions.
-        - Virtualized, managed, and visualized servers and infrastructure.
-        - Monitored servers and services.
-        - Provided backup solutions for servers, workstations, and databases.
-        - Developed complex scripts.
-        - Worked with the VoIP systems: developed applications and system management tools.
-        - Developed open-source storage solutions.
-      keywords: []
+        - **Advertisement Marketplace (Team: 5):**
+        - Architected custom software solutions and managed bare-metal server virtualization, monitoring, and automated backup infrastructure.
+        - Developed complex automation scripts and open-source storage solutions.
+        - Built system management tools and applications for high-volume VoIP platforms.
+      keywords: [ ]
   languages:
     # Valid language fluency options:
     #
