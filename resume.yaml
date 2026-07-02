@@ -15,8 +15,8 @@ content:
   basics:
     name: Volodymyr Protsaylo
     headline: Software Engineer (Java)
-    phone: "+380677592200"
-    email: pwr@ukr.net
+    phone:
+    email: wolodya.java@manyme.com
     url: 
     # All summary fields supports a limited rich text capabilities in markdown
     # syntax:
@@ -352,7 +352,8 @@ content:
         - Hiking
     - name: Technical
       keywords:
-        - HAM Radio
+        - Internet of Things (IoT)
+        - Amateur Radio Operation
   volunteer: []
 
 # Top-level locale setting
