@@ -35,12 +35,28 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    /**
+ * VS Code Theme for YAMLResume HTML Renderer
+ * Inspired by VS Code Dark+ theme.
+ */
+
     :root {
-      --border-color: #d0d0d0;
+      --border-color: #3e3e42;
+      --link-color: #3794ff;
 
       /* text colors */
-      --text-color-primary: #000000;
-      --text-color-secondary: #333333;
+      --text-color-primary: #d4d4d4;
+      --text-color-secondary: #858585;
+      /* Comments/Subtle */
+      --keyword-color: #569cd6;
+      /* Blue for keywords */
+      --string-color: #ce9178;
+      /* Orange for strings */
+      --class-color: #4ec9b0;
+      /* Teal for classes */
+      --function-color: #dcdcaa;
+      /* Yellow for functions */
+      --background-color: #1e1e1e;
 
       /* spacing */
       --spacing-xss: 2px;
@@ -48,9 +64,9 @@
       --spacing-sm: 8px;
       --spacing-md: 12px;
       --spacing-lg: 16px;
-      --spacing-xl: 24px;
-      --spacing-xxl: 40px;
-      --spacing-xxxl: 80px;
+      --spacing-xl: 20px;
+      --spacing-xxl: 32px;
+      --spacing-xxxl: 48px;
 
       /* font sizes */
       --font-size-xs: 0.8rem;
@@ -58,24 +74,24 @@
       --font-size-md: 1rem;
       --font-size-lg: 1.1rem;
       --font-size-xl: 1.25rem;
-      --font-size-xxl: 2.5rem;
+      --font-size-xxl: 2rem;
 
       /* layout */
       --page-max-width: 900px;
 
       /* typography */
-      --text-default-font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-        Cantarell, sans-serif;
+      --text-default-font-family: "Consolas", "Monaco", "Courier New", monospace;
     }
 
     html {
       font-size: var(--text-font-size);
+      background-color: var(--background-color);
     }
 
     body {
       /* font & text */
       color: var(--text-color-primary);
+      background-color: var(--background-color);
       font-family: var(--text-font-family);
       /* this variable is defined by `typography.fontSize` in resume html layout */
       text-autospace: normal;
@@ -90,62 +106,96 @@
     /* header */
     .resume-header {
       margin-bottom: var(--spacing-xxl);
-      text-align: center;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: var(--spacing-lg);
     }
 
     .resume-name {
       font-size: var(--font-size-xxl);
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: var(--spacing-sm);
+      color: var(--class-color);
+      /* Treat name like a Class */
+    }
+
+    .resume-name::before {
+      content: "class ";
+      color: var(--keyword-color);
+      font-size: var(--font-size-lg);
+      font-weight: normal;
+    }
+
+    .resume-name::after {
+      content: " {";
+      color: var(--text-color-primary);
     }
 
     .resume-headline {
       font-size: var(--font-size-lg);
       margin-bottom: var(--spacing-md);
+      color: var(--string-color);
+      /* Treat headline like a string */
+      font-style: italic;
+    }
+
+    .resume-headline::before {
+      content: "// ";
+      color: var(--text-color-secondary);
+      font-style: normal;
     }
 
     /* contact info */
     .resume-contact-info {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
       column-gap: var(--spacing-lg);
       row-gap: var(--spacing-xs);
       margin-top: var(--spacing-sm);
+      font-size: var(--font-size-sm);
     }
 
-    .resume-contact-icon,
-    .resume-contact-label {
-      margin-right: var(--spacing-sm);
+    .resume-contact-icon {
+      margin-right: var(--spacing-xs);
       vertical-align: middle;
+      opacity: 0.8;
     }
 
-    /* links: modern typographic style */
+    /* links: vscode style */
     a {
-      color: var(--text-color-primary);
-      text-decoration: underline;
-      text-decoration-color: var(--border-color);
-      text-underline-offset: 3px;
-      text-decoration-thickness: 1px;
-      text-decoration-skip-ink: auto;
-      transition: text-decoration-color 0.2s;
+      color: var(--link-color);
+      text-decoration: none;
     }
 
     a:hover {
-      text-decoration-color: var(--text-color-primary);
+      text-decoration: underline;
     }
 
     /* sections */
     .resume-section {
       margin-bottom: var(--spacing-xl);
+      padding-left: var(--spacing-lg);
+      /* Indent content */
+      border-left: 1px solid var(--border-color);
+      /* Indentation guide */
     }
 
     .resume-section-title {
       font-size: var(--font-size-xl);
-      font-weight: 500;
+      font-weight: 700;
       margin-bottom: var(--spacing-md);
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: var(--spacing-xs);
+      color: var(--function-color);
+      /* Treat section like a Function */
+      margin-left: calc(-1 * var(--spacing-lg));
+      /* Pull title back */
+      padding-left: var(--spacing-lg);
+      /* Add padding to match indentation */
+    }
+
+    .resume-section-title::after {
+      content: "()";
+      color: var(--text-color-primary);
     }
 
     /* entries */
@@ -165,8 +215,18 @@
     }
 
     .resume-entry-title {
-      font-weight: 500;
+      font-weight: 700;
       margin-bottom: var(--spacing-xss);
+      color: var(--class-color);
+    }
+
+    .resume-entry-organization {
+      color: var(--text-color-secondary);
+    }
+
+    .resume-entry-date {
+      color: var(--text-color-secondary);
+      font-size: var(--font-size-sm);
     }
 
     .resume-entry-summary p,
@@ -180,12 +240,18 @@
     .resume-summary-content ul,
     .resume-summary-content ol {
       padding-left: var(--spacing-lg);
-      list-style-type: circle;
+      list-style-type: disc;
+    }
+
+    .resume-entry-summary li::marker,
+    .resume-summary-content li::marker {
+      color: var(--keyword-color);
     }
 
     /* labeled lists (courses, keywords, etc.) */
     .resume-labeled-list span {
-      font-weight: 500;
+      font-weight: 700;
+      color: var(--keyword-color);
     }
 
     /* skills grid */
@@ -199,12 +265,22 @@
 
     .resume-skill-name,
     .resume-language-name {
-      font-weight: 500;
+      font-weight: 700;
+      color: var(--string-color);
+      /* Keys in an object */
+    }
+
+    .resume-skill-name::after,
+    .resume-language-name::after {
+      content: ":";
+      color: var(--text-color-primary);
     }
 
     .resume-skill-level,
     .resume-language-fluency {
       font-weight: 400;
+      color: var(--text-color-secondary);
+      /* Comment-like for values/levels */
     }
 
     /* mobile */
@@ -219,7 +295,7 @@
 
       .resume-contact-info {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
       }
 
       .resume-entry-header {
@@ -240,6 +316,14 @@
       border-top: 1px solid var(--border-color);
       font-size: var(--font-size-sm);
       color: var(--text-color-secondary);
+    }
+
+    .resume-footer::before {
+      content: "/* ";
+    }
+
+    .resume-footer::after {
+      content: " */";
     }
 
     @media print {
