@@ -17,7 +17,7 @@ content:
     headline: Software Engineer (Java)
     phone:
     email: wolodya.java@manyme.com
-    url: 
+    url: https://github.com/pwrsoft
     # All summary fields supports a limited rich text capabilities in markdown
     # syntax:
     #
@@ -28,9 +28,7 @@ content:
     summary: |
       - Computer Science graduate with a deep foundation in data structures, algorithms, and robust software design.
       - Java developer with over two decades of IT experience, including 10+ years specializing in Java backend development.
-      - Extensive experience designing AML/KYC risk-scoring and authentication platforms for tier-one Nordic banks.
       - Broad domain background spanning fintech, banking, healthcare, media, and oil & gas across Europe, the Middle East, and the US.
-      - Deep technical expertise in Spring Boot, event-driven architectures (Kafka), and secure enterprise authentication (OIDC/SAML).
       - Proven track record of delivering production-critical systems under tight compliance and high-pressure environments.
   location:
     city: Lviv
@@ -71,7 +69,7 @@ content:
       url: https://www.tieto.com/en/
       startDate: Feb 1, 2024
       endDate:
-      position: Senior Software Engineer
+      position: Software Engineer
       summary: |
         **AML/KYC Customer Risk Rating (CRR) Platform (Jan 2026 – Present | Team: 10)**
         - Engineered a core CRR engine supporting Anti-Money Laundering (AML) and Know Your Customer (KYC) compliance, automating risk scoring for customer onboarding and periodic reviews.
@@ -106,7 +104,7 @@ content:
       endDate: May 1, 2023
       position: Software Engineer
       summary: |
-        - ** Digital Retail Banking Platform for the Middle East market (Team: 30).**
+        - **Digital Retail Banking Platform for the Middle East market (Team: 30).**
         - Extended and integrated core banking engine modules to match local compliance regulations.
         - Mapped and implemented strict Anti-Money Laundering (AML) and Anti-Fraud business logic requirements.
       keywords: [ ]
@@ -280,11 +278,22 @@ content:
   references: []
   projects: []
   interests:
+    - name: Personal
+      keywords:
+        - Family
+        - Music
+        - Movies
+        - Photography
+        - Board Games
+        - Books
     - name: Sports
       keywords:
         - Swimming
-        - Bike
+        - Running
+        - Cycling
         - Hiking
+        - Fishing
+        - Traveling
     - name: Technical
       keywords:
         - Internet of Things (IoT)
@@ -301,7 +310,7 @@ locale:
 layouts:
   - engine: html
     # Use `yamlresume templates list` to get the list of available templates
-    template: calm
+    template: vscode
     typography:
       # HTML engine only supports font size in px unit, from 10px to 24px
       fontSize: 16px
