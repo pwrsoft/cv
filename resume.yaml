@@ -14,7 +14,7 @@
 content:
   basics:
     name: Volodymyr Protsaylo
-    headline: Software Engineer (Java)
+    headline: Software Engineer (Java/Linux)
     phone:
     email: wolodya.java@manyme.com
     url: https://github.com/pwrsoft
@@ -119,6 +119,12 @@ content:
         - MySQL
         - Redis
         - MongoDB
+    - name: Operating Systems
+      level: Advanced
+      keywords:
+        - "Linux: Debian, Ubuntu, CentOS, RedHat, SUSE, Fedora"
+        - "Unix: Freebsd, Solaris, QNX"
+        - "Other: Microtic RouterOS"
 
   work:
     - name: Tieto
@@ -203,12 +209,24 @@ content:
       url: https://www.altertech.com/
       startDate: Sep 1, 2008
       endDate: Dec 1, 2013
-      position: Java Engineer, System Programming Dept. Manager
+      position: Java Engineer, R&D System Programming Dept. Manager
       summary: |
-        - **Advertisement Marketplace (Team: 5):**
-        - Architected custom software solutions and managed bare-metal server virtualization, monitoring, and automated backup infrastructure.
-        - Developed complex automation scripts and open-source storage solutions.
-        - Built system management tools and applications for high-volume VoIP platforms.
+        **Key responsibilities and achievements**
+        - Designed and developed enterprise client-server applications using Java, Spring Framework, Hibernate/JPA, JDBC, JSP/Servlets, Freemarker, and MVC architecture.
+        - Developed and maintained REST-based and web applications deployed on Apache Tomcat, Resin, and Nginx/Apache HTTP Server.
+        - Worked with Oracle and PostgreSQL, including database design, optimization, backup strategies, and performance tuning.
+        - Administered and maintained Linux and Windows servers, performing system configuration, service management, log analysis, troubleshooting, and performance optimization.
+        - Automated operational tasks using Bash shell scripting, scheduled jobs with cron, and developed custom administration and monitoring utilities.
+        - Investigated production issues through application and system logs, resource utilization (CPU, memory, disk I/O, networking), and root cause analysis.
+        - Designed, implemented, and supported enterprise network infrastructure, including routing, security, and highly available architectures.
+        - Built and maintained infrastructure virtualization environments using XEN and VMware vSphere.
+        - Designed and implemented monitoring solutions for servers and distributed services, including custom monitoring modules and health checks.
+        - Designed and maintained backup and disaster recovery solutions for servers, databases, and workstations.
+        - Developed software and administration tools for VoIP platforms based on Asterisk.
+        - Implemented and administered enterprise storage solutions using OpenSolaris, ZFS, OpenFiler, iSCSI, Samba, and NFS.
+        - Designed and implemented fault-tolerant infrastructures, load balancing, web clustering, storage encryption, and DDoS protection solutions.
+        - Worked with RouterOS, enterprise networking, and secure infrastructure deployments.
+        - Collaborated with development and operations teams to improve system reliability, automation, and operational efficiency.
       keywords: [ ]
   languages:
     # Valid language fluency options:
@@ -260,21 +278,29 @@ content:
   awards: []
   certificates:
     - name: Skill Analysis for Professional Java Developers
-      url:
+      url: https://www.greps.com/
       issuer: GrepS
       date: Jan 2020
     - name: Basics of Web UI Development
-      url: 
+      url: https://www.instagram.com/lviv_it_school/
       issuer: LITS
       date: Jan 2019
     - name: Learning How to Learn
-      url: 
+      url: https://www.coursera.org/
       issuer: Coursera
       date: Jan 2018
     - name: "CS50: Introduction to Computer Science"
-      url: 
+      url: https://www.instagram.com/lviv_it_school/
       issuer: LITS
       date: Jan 2017
+    - name: "Steel Drum Sequential Award Nominee"
+      url: https://www.steeldrum.org.ua/ua/fotolalereji/stalevyj-buben-i-20101127.html
+      issuer: "Steel Drum"
+      date: Nov 2012
+    - name: "Unix System Administration"
+      url: https://en.wikipedia.org/wiki/Brainbench
+      issuer: BrainBench Certification
+      date:
   publications: []
   references: []
   projects: []
@@ -297,8 +323,9 @@ content:
         - Traveling
     - name: Technical
       keywords:
+        - Smart Home Automation
         - Internet of Things (IoT)
-        - Amateur Radio Operation
+        - Amateur Radio
         - 3D Printing
   volunteer: []
 
@@ -311,7 +338,7 @@ locale:
 layouts:
   - engine: html
     # Use `yamlresume templates list` to get the list of available templates
-    template: moderncv-banking
+    template: calm
     typography:
       # HTML engine only supports font size in px unit, from 10px to 24px
       fontSize: 16px
